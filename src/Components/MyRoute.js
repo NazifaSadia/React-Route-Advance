@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import {Route} from '../../node_modules/react-router-dom';
+import {Route, Switch} from '../../node_modules/react-router-dom';
 import Page1 from './Pages/Page1';
 import Page2 from './Pages/Page2';
 import Page3 from './Pages/Page3';
 import Home from './Pages/Home';
+import NotFound from './Pages/NotFound';
 
 class MyRoute extends Component {
     render() {
         return (
             <div>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/page1" component={Page1} />
-                <Route exact path="/page2" component={Page2} />
-                <Route exact path="/page3" component={Page3} />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/page1" component={Page1} />
+                    <Route exact path="/page2" component={Page2} />
+                    <Route exact path="/page3" component={Page3} />
+                    <Route component={NotFound} />
+                </Switch>
             </div>
         );
     }
